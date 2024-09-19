@@ -13,59 +13,7 @@
 
 <body>
 
-  <script>
-    vkBridge.send('VKWebAppInit');
-
-    function shareVK() {
-      vkBridge.send('VKWebAppShare', {
-        link: 'https://vk.com/app52332924'
-      })
-        .then((data) => {
-          if (data.result) {
-            // Запись размещена
-          }
-        })
-        .catch((error) => {
-          // Ошибка
-          console.log(error);
-        });
-    }
-
-    function fulladsVK() {
-      const now = Date.now();
-      if (now - this.lastAdTime < 30000) {
-        return;
-      }
-
-      vkBridge.send('VKWebAppShowNativeAds', {
-        ad_format: 'interstitial' /* Тип рекламы */
-      })
-        .then((data) => {
-          if (data.result) {
-            this.lastAdTime = Date.now(); // Update the last ad time
-          } else {
-            console.log('Ad error');
-          }
-        })
-        .catch((error) => { console.log(error); });
-    }
-
-    vkBridge.send('VKWebAppShowBannerAd', {
-      banner_location: 'bottom'
-    })
-      .then((data) => {
-        if (data.result) {
-          // Баннерная реклама отобразилась
-        }
-      })
-      .catch((error) => {
-        // Ошибка
-        console.log(error);
-      });
-
-
-
-  </script>
+  
 
   <div id="unity-container">
     <canvas id="unity-canvas" width=700 height=910 tabindex="-1"></canvas>
@@ -158,9 +106,59 @@
     document.body.appendChild(script);
   </script>
 
-  <script>
-    
-  </script>
+<script>
+  vkBridge.send('VKWebAppInit');
+
+  function shareVK() {
+    vkBridge.send('VKWebAppShare', {
+      link: 'https://vk.com/app52332924'
+    })
+      .then((data) => {
+        if (data.result) {
+          // Запись размещена
+        }
+      })
+      .catch((error) => {
+        // Ошибка
+        console.log(error);
+      });
+  }
+
+  function fulladsVK() {
+    const now = Date.now();
+    if (now - this.lastAdTime < 30000) {
+      return;
+    }
+
+    vkBridge.send('VKWebAppShowNativeAds', {
+      ad_format: 'interstitial' /* Тип рекламы */
+    })
+      .then((data) => {
+        if (data.result) {
+          this.lastAdTime = Date.now(); // Update the last ad time
+        } else {
+          console.log('Ad error');
+        }
+      })
+      .catch((error) => { console.log(error); });
+  }
+
+  vkBridge.send('VKWebAppShowBannerAd', {
+    banner_location: 'bottom'
+  })
+    .then((data) => {
+      if (data.result) {
+        // Баннерная реклама отобразилась
+      }
+    })
+    .catch((error) => {
+      // Ошибка
+      console.log(error);
+    });
+
+
+
+</script>
 </body>
 
 </html>
