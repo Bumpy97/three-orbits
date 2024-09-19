@@ -1,9 +1,9 @@
 const cacheName = "DefaultCompany-orbit-game-1.0";
 const contentToCache = [
     "Build/orbits.loader.js",
-    "Build/orbits.framework.js.br",
-    "Build/orbits.data.br",
-    "Build/orbits.wasm.br",
+    "Build/orbits.framework.js.unityweb",
+    "Build/orbits.data.unityweb",
+    "Build/orbits.wasm.unityweb",
     "TemplateData/style.css"
 
 ];
