@@ -130,7 +130,7 @@
         return;
       }
 
-      bridge.send('VKWebAppShowNativeAds', {
+      vkBridge.send('VKWebAppShowNativeAds', {
         ad_format: 'interstitial' /* Тип рекламы */
       })
         .then((data) => {
@@ -142,6 +142,21 @@
         })
         .catch((error) => { console.log(error); });
     }
+
+    bridge.send('VKWebAppShowBannerAd', {
+      banner_location: 'bottom'
+    })
+      .then((data) => {
+        if (data.result) {
+          // Баннерная реклама отобразилась
+        }
+      })
+      .catch((error) => {
+        // Ошибка
+        console.log(error);
+      });
+
+
 
   </script>
 </body>
