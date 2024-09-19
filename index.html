@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | orbit-game</title>
@@ -8,7 +9,12 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
   </head>
+
   <body>
+    
+    <script>
+      vkBridge.send('VKWebAppInit');
+    </script>
     <div id="unity-container">
       <canvas id="unity-canvas" width=700 height=910 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -99,5 +105,22 @@
       };
       document.body.appendChild(script);
     </script>
+
+<script>
+  function shareVK() {
+    vkBridge.send('VKWebAppShare', {
+      link: 'https://vk.com/app52332924'
+    })
+      .then((data) => {
+        if (data.result) {
+          // Запись размещена
+        }
+      })
+      .catch((error) => {
+        // Ошибка
+        console.log(error);
+      });
+  }
+</script>
   </body>
 </html>
