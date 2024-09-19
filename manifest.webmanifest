@@ -1,6 +1,6 @@
 {
-    "name": "orbit-game",
-    "short_name": "orbit-game",
+    "name": "orbitgame",
+    "short_name": "orbitgame",
     "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "#231F20",
